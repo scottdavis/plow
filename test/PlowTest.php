@@ -12,7 +12,7 @@ class PlowTest extends PHPUnit_Framework_TestCase {
 		$plow = new Plow($this->plow_path);
 		$this->assertEquals(4, count($plow->dependency_map));
 		$this->assertEquals(4, count($plow->name_map));
-		$this->assertEquals($plow->dependency_map['Test2Other'][0], "Test2")
+		$this->assertEquals($plow->dependency_map['Test2Other'][0], "Test2");
 	}
 	
 }
