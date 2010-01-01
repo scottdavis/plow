@@ -1,0 +1,12 @@
+<?php
+class Test implements PlowTask {
+	public function run($args) {
+		
+	}
+	public function name() {
+		return __CLASS__;
+	}
+	public function dependencies() {
+		return array();
+	}
+}
