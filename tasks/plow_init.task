@@ -1,0 +1,12 @@
+<?php
+		class PlowShowTasks implements PlowTask {
+			public function run($args) {
+				touch(".plowfile");
+			}
+			public function name() {
+				return "plow::init";
+			}
+			public function dependencies() {
+				return array();
+			}
+		}
