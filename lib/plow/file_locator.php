@@ -5,7 +5,6 @@
 class PlowFileLocator {
 	static $plow_file_names = array('plowfile', 'Plowfile', 'Plowfile.php', 'plowfile.php', '.plowfile');
 	static $task_extensions = array('plow', 'task');
-	static $plow_file = '';
 	/**
 		* Find the plow file for this app 
 		* @param string $cwd
@@ -16,12 +15,12 @@ class PlowFileLocator {
 			foreach(static::$plow_file_names as $type) {
 		  	$path = implode(DIRECTORY_SEPARATOR, array_merge($path_parts, array($type)));
 		  	if (file_exists($path)) {
-					return static::$plow_file = $path;
+					return $path;
 		  	}
 		 	}
 			array_pop($path_parts);
 		}
-		throw new Exception('No Plowfile found');
+    return $cwd . "/foo";
 	}
 		
 	/**
@@ -49,7 +48,9 @@ class PlowFileLocator {
 		$matches = array();
 		$out = array();
 		foreach($files as $file) {
+		  if(!file_exists($file)) {continue;}
 			$data = file($file);
+			if(empty($data)) {continue;}
 			foreach($data as $line) {
 				if(preg_match('/[c|C]lass\s+([a-zA-z0-9]+)\s+[i|I]mplements\s+PlowTask/', $line, $matches)) {
 					$out[] = $matches[1];

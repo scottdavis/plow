@@ -10,8 +10,8 @@ class PlowTest extends PHPUnit_Framework_TestCase {
 
 	public function testPlowLoadsRight() {
 		$plow = new Plow($this->plow_path);
-		$this->assertEquals(6, count($plow->dependency_map));
-		$this->assertEquals(6, count($plow->name_map));
+		$this->assertEquals(9, count($plow->dependency_map));
+		$this->assertEquals(9, count($plow->name_map));
 		$this->assertEquals($plow->dependency_map['Test2Other'][0], "Test2");
 	}
 	

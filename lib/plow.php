@@ -22,6 +22,9 @@ class Plow {
 		* @param array $args = $argv
 		*/
 	public function __construct($path, $args = array()) {
+	  if(!isset($args[1])) {
+			$args[1] = 'plow::help';
+		}
 		$this->global_tasks = __DIR__ . '/../tasks';
 		$this->path = $path;
 		$this->args = $args;
@@ -68,7 +71,9 @@ class Plow {
 		*/
 	private function load_classes() {
 		foreach($this->find_tasks() as $file) {
-			require_once($file);
+		  if(file_exists($file) && !is_dir($file)) {
+			  require_once($file);
+		  }
 		}
 		foreach($this->get_task_names() as $task) {
 			$this->classes[$task] = new $task; 
