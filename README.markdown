@@ -1,10 +1,10 @@
 #Plow is a command line tool for chaining dependent tasks
 
-1. `plow::help` - displays this file
-2. `plow::version` - displays plow version number
-3. `plow::create::task` - makes a new task template
-4. `plow::init` - creates a plowfile marking the scope of the app
-5. `plow::show::all` - shows all tasks in the current scope
+1. `plow plow::help` - displays this file
+2. `plow plow::version` - displays plow version number
+3. `plow plow::create::task` - makes a new task template
+4. `plow plow::init` - creates a plowfile marking the scope of the app
+5. `plow plow::show::all` - shows all tasks in the current scope
 
 
 ##A task implements as PlowTask interface
