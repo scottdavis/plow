@@ -14,3 +14,6 @@
 		public function name();
 		public function dependencies();
 	}
+	
+##Examples
+see: [Pearfarms tasks](http://github.com/jetviper21/pearfarm_channel_server/tree/master/tasks/)
