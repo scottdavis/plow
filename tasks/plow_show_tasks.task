@@ -1,0 +1,16 @@
+<?php
+		class PlowShowTasks implements PlowTask {
+			public function run($args) {
+				$plow = $args[0];
+				print("Listing all tasks:\n");
+				foreach($plow->name_map as $class => $task_name) {
+					print($task_name . "\n");
+				}
+			}
+			public function name() {
+				return "plow::show::all";
+			}
+			public function dependencies() {
+				return array();
+			}
+		}

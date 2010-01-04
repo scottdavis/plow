@@ -1,1 +1,6 @@
-This is helping
+Plow is a command line tool for chaining dependent tasks
+
+plow::help - displays this file
+plow::version - displays plow version number
+plow::create::task - makes a new task template
+plow::show::all - shows all tasks in the current scope

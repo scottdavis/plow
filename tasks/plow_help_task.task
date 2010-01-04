@@ -7,6 +7,6 @@ class PlowHelpTask implements PlowTask {
 		return "plow::help";
 	}
 	public function dependencies() {
-		return array('plow::version');
+		return array();
 	}
 }

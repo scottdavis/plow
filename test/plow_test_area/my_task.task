@@ -1,0 +1,12 @@
+<?php
+		class my_task implements PlowTask {
+			public function run($args) {
+				
+			}
+			public function name() {
+				return "my_task";
+			}
+			public function dependencies() {
+				return array();
+			}
+		}

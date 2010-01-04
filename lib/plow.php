@@ -25,6 +25,7 @@ class Plow {
 		$this->global_tasks = __DIR__ . '/../tasks';
 		$this->path = $path;
 		$this->args = $args;
+		$this->args[0] = $this;
 		$this->add_task_location($this->global_tasks);
 		$this->add_task_location($this->path);
 		$this->load_classes();

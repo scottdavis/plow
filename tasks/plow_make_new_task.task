@@ -1,0 +1,24 @@
+<?php
+class PlowMakeNewTask implements PlowTask {
+	public function run($args) {
+		$string = "<?php
+		class {name} implements PlowTask {
+			public function run(\$args) {
+				
+			}
+			public function name() {
+				return \"{name}\";
+			}
+			public function dependencies() {
+				return array();
+			}
+		}";
+		file_put_contents($args[2] . ".task", str_replace('{name}', $args[2], $string));
+	}
+	public function name() {
+		return "plow::create::task";
+	}
+	public function dependencies() {
+		return array();
+	}
+}
