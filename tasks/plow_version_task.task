@@ -1,0 +1,12 @@
+<?php
+class PlowVersionTask implements PlowTask {
+	public function run($args) {
+		print file_get_contents(__DIR__ . '/../VERSION') . "\n";
+	}
+	public function name() {
+		return "plow::version";
+	}
+	public function dependencies() {
+		return array();
+	}
+}

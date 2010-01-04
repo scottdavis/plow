@@ -1,0 +1,12 @@
+<?php
+class PlowHelpTask implements PlowTask {
+	public function run($args) {
+		print file_get_contents(__DIR__ . '/HELP.txt') . "\n";
+	}
+	public function name() {
+		return "plow::help";
+	}
+	public function dependencies() {
+		return array('plow::version');
+	}
+}

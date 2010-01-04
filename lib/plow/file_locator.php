@@ -6,18 +6,11 @@ class PlowFileLocator {
 	static $plow_file_names = array('plowfile', 'Plowfile', 'Plowfile.php', 'plowfile.php', '.plowfile');
 	static $task_extensions = array('plow', 'task');
 	static $plow_file = '';
-	static $plow_files = array();
-	static $tasks = array();
-	
-	
 	/**
 		* Find the plow file for this app 
 		* @param string $cwd
 		*/
 	public static function find_plow_file($cwd) {
-		if(!empty(static::$plow_file)) {
-			return static::$plow_file;
-		}
 		$path_parts = explode(DIRECTORY_SEPARATOR, $cwd);
 		while (!empty($path_parts)) {
 			foreach(static::$plow_file_names as $type) {
@@ -30,15 +23,12 @@ class PlowFileLocator {
 		}
 		throw new Exception('No Plowfile found');
 	}
-	
+		
 	/**
 		* Find the tasks for this app 
 		* @param string $cwd
 		*/
 	public static function find_all_tasks($cwd) {
-		if(!empty(static::$plow_files)) {
-			return static::$plow_files;
-		}
 		$regex = '/\.(' . implode("|" , static::$task_extensions) . ')$/';
 		$plow_file = static::find_plow_file($cwd);
 		$dir = realpath(dirname($plow_file));
@@ -48,16 +38,13 @@ class PlowFileLocator {
 				$task_files[]= (string) $file;
 			}
 		}
-		return static::$plow_files = $task_files;
+		return $task_files;
 	}
 	/**
 		* Get the task names for this app 
 		* @param string $cwd
 		*/
 	public static function get_task_names($cwd) {
-		if(!empty(static::$tasks)) {
-			return static::$tasks;
-		}
 		$files = static::find_all_tasks($cwd);
 		$matches = array();
 		$out = array();
@@ -70,7 +57,7 @@ class PlowFileLocator {
 			}
 			unset($data);
 		}
-		return static::$tasks = $out;
+		return $out;
 	}
 
 }
